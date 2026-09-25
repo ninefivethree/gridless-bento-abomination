@@ -7,13 +7,14 @@
     <title>flexbox bento abomination</title>
 
     <style>
-        body {
-            background-color: black;
-            height: 100svh;
-            margin: 0;
-            padding: 0;
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        body {
+            background-color: #111;
+            max-height: 100svh;
+            margin: 0;
+
+            font-family: 'Manrope', 'Helvetica Neue', sans-serif;
         }
 
         * {
@@ -22,11 +23,11 @@
             }
 
             &[third-width] {
-                width: 33%;
+                width: calc(100% / 3);
             }
 
             &[third-height] {
-                height: 33%;
+                height: calc(100% / 3);
             }
 
             &[quarter-height] {
@@ -35,15 +36,14 @@
 
             &[parent] {
                 height: 100svh;
+                padding: 1.5rem;
             }
+
+            box-sizing: border-box;
         }
 
         frow {
             display: flex;
-
-            /* placebo */
-            flex-grow: 1;
-
             flex-direction: row;
             width: 100%;
             height: 100%;
@@ -52,7 +52,6 @@
 
         fcol {
             display: flex;
-            flex-grow: 1;
             flex-direction: column;
             width: 100%;
             height: 100%;
@@ -62,21 +61,107 @@
         box {
             width: 100%;
             height: 100%;
-            background-color: #222;
+            background-color: #000;
             color: #eee;
             border-radius: 1rem;
+            overflow: hidden;
         }
 
         .box-content {
             display: flex;
-            align-items: start;
-            justify-content: start;
+            align-items: center;
+            justify-content: space-between;
             flex-direction: column;
 
-            padding: 0rem 1rem;
+            padding: 1rem 0rem;
 
             width: 100%;
             height: 100%;
+
+            * {
+                margin: 0;
+            }
+        }
+
+        .claim {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.2rem;
+            word-spacing: 0.1rem;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .hero {
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+
+            h1 {
+                position: relative;
+                z-index: 1;
+                color: #fff;
+                font-size: 4rem;
+                text-shadow: 0 0 2rem #000;
+                font-weight: 600;
+                letter-spacing: -0.2rem;
+                word-spacing: 0.5rem;
+            }
+
+            img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+
+
+        .mauve > h1 {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #9b5de5, #e0b0ff);
+        }
+
+        .battery > h1 {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to bottom, #29ff74, #00b894);
+        }
+
+        .intelligence {
+            background: linear-gradient(115deg, #ff5e62 0%, #ff9966 28%, #d94fd9 58%, #6b5bff 88%);
+            color: #fff;
+
+            p {
+                opacity: 0.8;
+            }
+        }
+
+        .social-center {
+            background: linear-gradient(to bottom, #ff5e62 0%, #ff9966 28%, #ff5e62 100%);
+            color: #fff;
+
+            p {
+                opacity: 0.8;
+            }
+        }
+
+        .os > h1 {
+            background: url("https://speedmetals.com/wp-content/uploads/2017/02/SpeedMetals-MetalTexture-Feb17.jpg"); /* sorry for hotlinking its late i want to go to bed */
+            background-size: cover;
+            background-position: center;
+
+            filter: contrast(50%) brightness(150%);
+
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
     </style>
 </head>
@@ -87,58 +172,75 @@
             <frow>
                 <fcol third-width>
                     <box>
-                        <div class="box-content">
-                            <p>oh yeah</p>
+                        <div class="box-content range">
+                            <p>Up to</p>
+                            <h1 class="claim">2 ft</h1>
+                            <p>of effective range</p>
                         </div>
                     </box>
                     <box third-height>
                         <div class="box-content">
-                            <p>oh yeah</p>
+                            <p>Ergonomic</p>
+                            <h1 class="claim">Grip</h1>
+                            <p>sold separately</p>
                         </div>
                     </box>
                 </fcol>
                 <fcol>
                     <frow third-height>
                         <box>
-                            <div class="box-content">
-                                <p>oh yeah</p>
+                            <div class="box-content mauve">
+                                <p>Also available in</p>
+                                <h1 class="claim">Mauve</h1>
+                                <span></span>
                             </div>
                         </box>
                         <box>
-                            <div class="box-content">
-                                <p>oh yeah</p>
+                            <div class="box-content battery">
+                                <p>Up to</p>
+                                <h1 class="claim">24 hours</h1>
+                                <p>of fully autonomous operation[1]</p>
                             </div>
                         </box>
                     </frow>
                     <box>
-                        <div class="box-content">
-                            <p>oh yeah</p>
+                        <div class="box-content hero">
+                            <img src="/assets/apparatus.png" alt="The Apparatus™">
+                            <h1>The Apparatus™</h1>
                         </div>
                     </box>
                 </fcol>
             </frow>
             <frow quarter-height>
                 <box>
-                    <div class="box-content">
-                        <p>oh yeah</p>
+                    <div class="box-content intelligence">
+                        <p>Onboard</p>
+                        <h1 class="claim">Apparatus Intelligence*</h1>
+                        <p>Regional availability may vary, see store for details[2]</p>
                     </div>
                 </box>
                 <box quarter-width>
                     <div class="box-content">
-                        <p>oh yeah</p>
+                        <p>Up to</p>
+                        <h1 class="claim">5 lb</h1>
+                        <p>per cm²</p>
                     </div>
                 </box>
             </frow>
         </fcol>
         <fcol quarter-width>
             <box>
-                <div class="box-content">
-                    <p>oh yeah</p>
+                <div class="box-content social-center">
+                    <p>Brand-new</p>
+                    <h1 class="claim">Social<br>Center</h1>
+                    <p>for seamless collaboration</p>
                 </div>
             </box>
             <box>
-                <div class="box-content">
-                    <p>oh yeah</p>
+                <div class="box-content os">
+                    <span></span>
+                    <h1 class="claim">AppOS</h1>
+                    <span></span>
                 </div>
             </box>
         </fcol>
