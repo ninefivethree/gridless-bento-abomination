@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flexbox bento abomination</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>flexbox bento abomination</title>
 
-    <style>
+        <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
         body {
@@ -18,6 +18,12 @@
         }
 
         * {
+            box-sizing: border-box;
+        }
+
+        flex-row,
+        flex-col,
+        flex-box {
             &[quarter-width] {
                 width: 25%;
             }
@@ -34,15 +40,13 @@
                 height: 25%;
             }
 
-            &[parent] {
+            &[bento-parent] {
                 height: 100svh;
                 padding: 1.5rem;
             }
-
-            box-sizing: border-box;
         }
 
-        frow {
+        flex-row {
             display: flex;
             flex-direction: row;
             width: 100%;
@@ -50,7 +54,7 @@
             gap: 1rem;
         }
 
-        fcol {
+        flex-col {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -58,16 +62,13 @@
             gap: 1rem;
         }
 
-        box {
+        flex-box {
             width: 100%;
             height: 100%;
             background-color: #000;
             color: #eee;
             border-radius: 1rem;
             overflow: hidden;
-        }
-
-        .box-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -164,88 +165,72 @@
             color: transparent;
         }
     </style>
-</head>
+    </head>
 
-<body>
-    <frow parent>
-        <fcol>
-            <frow>
-                <fcol third-width>
-                    <box>
-                        <div class="box-content range">
+    <body>
+        <flex-row bento-parent>
+            <flex-col>
+                <flex-row>
+                    <flex-col third-width>
+                        <flex-box>
                             <p>Up to</p>
                             <h1 class="claim">2 ft</h1>
                             <p>of effective range</p>
-                        </div>
-                    </box>
-                    <box third-height>
-                        <div class="box-content">
+                        </flex-box>
+                        <flex-box third-height>
                             <p>Ergonomic</p>
                             <h1 class="claim">Grip</h1>
                             <p>sold separately</p>
-                        </div>
-                    </box>
-                </fcol>
-                <fcol>
-                    <frow third-height>
-                        <box>
-                            <div class="box-content mauve">
+                        </flex-box>
+                    </flex-col>
+                    <flex-col>
+                        <flex-row third-height>
+                            <flex-box class="mauve">
                                 <p>Also available in</p>
                                 <h1 class="claim">Mauve</h1>
                                 <span></span>
-                            </div>
-                        </box>
-                        <box>
-                            <div class="box-content battery">
+                            </flex-box>
+                            <flex-box class="battery">
                                 <p>Up to</p>
                                 <h1 class="claim">24 hours</h1>
                                 <p>of fully autonomous operation[1]</p>
-                            </div>
-                        </box>
-                    </frow>
-                    <box>
-                        <div class="box-content hero">
-                            <img src="https://github.com/ninefivethree/gridless-bento-abomination/blob/main/assets/apparatus.png?raw=true"
+                            </flex-box>
+                        </flex-row>
+                        <flex-box class="hero">
+                            <img
+                                src="https://github.com/ninefivethree/gridless-bento-abomination/blob/main/assets/apparatus.png?raw=true"
                                 alt="The Apparatus™">
                             <h1>The Apparatus™</h1>
-                        </div>
-                    </box>
-                </fcol>
-            </frow>
-            <frow quarter-height>
-                <box>
-                    <div class="box-content intelligence">
+                        </flex-box>
+                    </flex-col>
+                </flex-row>
+                <flex-row quarter-height>
+                    <flex-box class="intelligence">
                         <p>Onboard</p>
                         <h1 class="claim">Apparatus Intelligence*</h1>
-                        <p>Regional availability may vary, see store for details[2]</p>
-                    </div>
-                </box>
-                <box quarter-width>
-                    <div class="box-content">
+                        <p>Regional availability may vary, see store for
+                            details[2]</p>
+                    </flex-box>
+                    <flex-box quarter-width>
                         <p>Up to</p>
                         <h1 class="claim">5 lb</h1>
                         <p>per cm²</p>
-                    </div>
-                </box>
-            </frow>
-        </fcol>
-        <fcol quarter-width>
-            <box>
-                <div class="box-content social-center">
+                    </flex-box>
+                </flex-row>
+            </flex-col>
+            <flex-col quarter-width>
+                <flex-box class="social-center">
                     <p>Brand-new</p>
                     <h1 class="claim">Social<br>Center</h1>
                     <p>for seamless collaboration</p>
-                </div>
-            </box>
-            <box>
-                <div class="box-content os">
+                </flex-box>
+                <flex-box class="os">
                     <span></span>
                     <h1 class="claim">AppOS</h1>
                     <span></span>
-                </div>
-            </box>
-        </fcol>
-    </frow>
-</body>
+                </flex-box>
+            </flex-col>
+        </flex-row>
+    </body>
 
 </html>
